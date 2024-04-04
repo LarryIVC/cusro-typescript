@@ -81,22 +81,32 @@ export {}
 
 // Arrays
 
-let colors: string[] = ['red', 'green', 'blue']
-colors.push('yellow')
-console.log(colors)
+// let colors: string[] = ['red', 'green', 'blue']
+// colors.push('yellow')
+// console.log(colors)
 
-let shifted = colors.shift()
-console.log(shifted)
+// let shifted = colors.shift()
+// console.log(shifted)
 
-colors.unshift('black')
-console.log(colors)
+// colors.unshift('black')
+// console.log(colors)
 
-let array1: number[] = [1,2,3,4,5]
-let array2: number[] = [6,7,8,9,10]
-let array3: number[] = array1.concat(array2)
+// let array1: number[] = [1,2,3,4,5]
+// let array2: number[] = [6,7,8,9,10]
+// let array3: number[] = array1.concat(array2)
 
-console.log(array3)
+// console.log(array3)
 
-let sliced: string[] = colors.slice(1,3)
+// let sliced: string[] = colors.slice(1,3)
 
-console.log(sliced)
+// console.log(sliced)
+
+let scores: number[] = [10, 20, 30, 40, 50]
+
+let highScore = scores.find ( score => score > 30)
+
+console.log(highScore)
+
+let highScoresIndex = scores.findIndex ( score => score > 30)
+
+console.log(highScoresIndex)
