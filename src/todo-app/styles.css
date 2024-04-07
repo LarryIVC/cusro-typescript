@@ -25,7 +25,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.input-container {
+#input-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -53,4 +53,3 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-
