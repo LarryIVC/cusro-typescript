@@ -173,8 +173,13 @@ if (!response.ok) {
 
 const data = await response.json() as APIResponse
 
-data.items.forEach(item => {
-  console.log(item.full_name)
-}
-)
+data.items.forEach(repo => {
+  return {
+    id: repo.id,
+    name: repo.name,
+    description: repo.description
+  }
+})
+
+
 
