@@ -181,5 +181,133 @@ data.items.forEach(repo => {
   }
 })
 
+// Interface
 
+interface Hero {
+  name: string;
+  age: number;
+  powers: string[];
+}
+
+const superman: Hero = {
+  name: 'Superman',
+  age: 60,
+  powers: ['Fly', 'Force']
+}
+
+interface Producto {
+  id: number;
+  nombre: string;
+  precio: number;
+}
+
+interface Zapatilla extends Producto {
+  talla: number;
+}
+
+interface CarritoDeCompras {
+  totalPrice: number
+  products: (Producto | Zapatilla)[]
+}
+
+// interface CarritoOps {
+//   add: (product: Producto) => void,
+//   remove: (id: number) => void,
+//   clear: () => void,
+// }
+
+interface CarritoOps {
+  add(product: Producto): void,
+  remove(id: number): void,
+}
+
+interface CarritoOps {
+  clear(): void,
+}
+
+const ops: CarritoOps = {
+  add(product) {
+    console.log('Añadiendo producto', product)
+  },
+  remove(id) {
+    console.log('Eliminando producto con id', id)
+  },
+  clear() {
+    console.log('Limpiando carrito')
+  }
+}
+
+type HeroId = `${string}-${number}`
+
+interface Herox {
+  id: HeroId;
+  name: string;
+}
+
+// narrowing
+
+function mostrarLongitud (objeto: number | string) {
+  if (typeof objeto === 'number') {
+    console.log('La longitud del número es', objeto.toString().length)
+  } else {
+    console.log('La longitud de la cadena es', objeto.length)
+  }
+}
+
+interface Mario {
+  company: 'Nintendo',
+  name: string,
+  saltar: () => void
+}
+
+interface Sonic {
+  company: 'Sega',
+  name: string,
+  correr: () => void
+}
+
+type Personaje = Mario | Sonic
+
+function jugar(personaje: Personaje) {
+  if (personaje.company === 'Nintendo') {
+    personaje.saltar()
+  } else {
+    personaje.correr()
+  }
+}
+
+// type guards
+
+function checkIsSonic (personaje: Personaje): personaje is Sonic {
+  return (personaje as Sonic).correr !== undefined
+}
+
+function jugar2(personaje: Personaje) {
+  if (checkIsSonic(personaje)) {
+    personaje.correr()
+  } else if(!checkIsSonic(personaje)){
+    personaje.saltar()
+  } else {
+    // personaje is never
+    throw new Error('Personaje no válido')
+  }
+}
+
+// classes
+
+class Avenger {
+  name: string;
+  power: string;
+
+  constructor(name: string, power: string) {
+    this.name = name
+    this.power = power
+  }
+
+  attack() {
+    console.log(`${this.name} está atacando con ${this.power}`)
+  }
+}
+
+// tipo never
 
